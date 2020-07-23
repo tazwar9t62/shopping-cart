@@ -87,6 +87,9 @@
       document.getElementById("product1Plus").addEventListener("click", function () {
          const product1Number = document.getElementById("product1Number").value;
          const product1NumberFloat = parseFloat(product1Number);
+         //Increasing the product 1 number
+         const totalNumber = product1NumberFloat + 1;
+         document.getElementById("product1Number").value = totalNumber;
 
       })
    </script>
