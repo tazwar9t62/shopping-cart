@@ -23,10 +23,10 @@
                         <h5>iPhone 11 128GB Black</h5>
                      </div>
 
-                     <div class="col-md-5 center-item">
+                     <div class="col-md-5 center-item mr-auto">
                         <div class="input-group number-spinner">
                            <button id="product1Minus" class="btn btn-default"><i class="fas fa-minus"></i></button>
-                           <input id="product1Number" type="text" class="form-control text-center" value="1">
+                           <input id="product1Number" type="text" class="form-control text-center mx-1" value="1">
                            <button id="product1Plus" class="btn btn-default"><i class="fas fa-plus"></i></button>
                         </div>
                         <h5>$ <span id="product1Price">1199</span></h5>
@@ -44,7 +44,7 @@
                      <div class="col-md-5 center-item">
                         <div class="input-group number-spinner">
                            <button id="product2Minus" class="btn btn-default"><i class="fas fa-minus"></i></button>
-                           <input id="product2Number" type="text" class="form-control text-center" value="1">
+                           <input id="product2Number" type="text" class="form-control text-center mx-1" value="1">
                            <button id="product2Plus" class="btn btn-default"><i class="fas fa-plus"></i></button>
 
                         </div>
@@ -90,6 +90,22 @@
          //Increasing the product 1 number
          const totalNumber = product1NumberFloat + 1;
          document.getElementById("product1Number").value = totalNumber;
+
+         const product1Price = document.getElementById("product1Price").innerText;
+         const product1PriceFloat = parseFloat(product1Price);
+         const product1PriceTotal = totalNumber * 1199;
+         document.getElementById("product1Price").innerText = product1PriceTotal;
+      })
+
+      //2nd product
+
+      document.getElementById("product2Plus").addEventListener("click", function () {
+         const product2Number = document.getElementById("product2Number").value;
+         const product2NumberFloat = parseFloat(product2Number);
+         //Increasing the product 1 number
+         const totalNumber2 = product2NumberFloat + 1;
+         document.getElementById("product2Number").value = totalNumber2;
+
 
       })
    </script>
