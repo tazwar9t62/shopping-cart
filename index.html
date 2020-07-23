@@ -112,7 +112,19 @@
          document.getElementById("totalAmount").innerText = totalAmountTotal.toFixed(2);
 
       })
-
+      //decreasing items number (Testing now..will apply later using function)
+      document.getElementById("product1Minus").addEventListener("click", function () {
+         const product1Number2 = document.getElementById("product1Number").value;
+         const product1NumberFloat2 = parseFloat(product1Number2);
+         //Increasing the product 1 number
+         const totalNumber2 = product1NumberFloat2 + (-1) * 1;
+         document.getElementById("product1Number").value = totalNumber2;
+         //decreasing product1 price
+         const product1Price2 = document.getElementById("product1Price").innerText;
+         const product1PriceFloat2 = parseFloat(product1Price2);
+         const product1PriceTotal2 = totalNumber2 * 1199;
+         document.getElementById("product1Price").innerText = product1PriceTotal2;
+      })
       //2nd product
 
       document.getElementById("product2Plus").addEventListener("click", function () {
