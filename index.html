@@ -18,12 +18,12 @@
             <div class="col-md-12 col-lg-10 mx-auto">
                <div class="cart-item">
                   <div class="row">
-                     <div class="col-md-7 center-item">
+                     <div class="col-md-6 center-item">
                         <img src="images/product-1.png" alt="iPhone 11">
                         <h5>iPhone 11 128GB Black</h5>
                      </div>
 
-                     <div class="col-md-5 center-item mr-auto">
+                     <div class="col-md-6 center-item mr-auto">
                         <div class="input-group number-spinner">
                            <button id="product1Minus" class="btn btn-default"><i class="fas fa-minus"></i></button>
                            <input id="product1Number" type="text" class="form-control text-center mx-1" value="1">
@@ -37,11 +37,11 @@
 
                <div class="cart-item">
                   <div class="row">
-                     <div class="col-md-7 center-item mx-auto">
+                     <div class="col-md-6 center-item mx-auto">
                         <img src="images/product-2.png" alt="Iphone case">
                         <h5>iPhone 11 Silicone Case - Black</h5>
                      </div>
-                     <div class="col-md-5 center-item">
+                     <div class="col-md-6 center-item">
                         <div class="input-group number-spinner">
                            <button id="product2Minus" class="btn btn-default"><i class="fas fa-minus"></i></button>
                            <input id="product2Number" type="text" class="form-control text-center mx-1" value="1">
@@ -64,7 +64,7 @@
                      </div>
 
                      <div class="col-md-4 status">
-                        <h5>$ <span id="subtotalAmount">1209</span></h5>
+                        <h5>$ <span id="subtotalAmount">1209.00</span></h5>
                         <h5 class="text-danger">$ <span id="taxAmount">60.45</span></h5>
                         <h5 class="text-success">$ <span id="totalAmount">1269.45</span></h5>
                      </div>
@@ -77,7 +77,7 @@
          </div>
       </div>
    </section>
-   <footer class="container-fluid text-center fixed-bottom">
+   <footer class="container-fluid text-center">
       <small class="text-muted">&copy; Tazwar 2020 || All rights reserved.</small>
    </footer>
 
@@ -90,11 +90,27 @@
          //Increasing the product 1 number
          const totalNumber = product1NumberFloat + 1;
          document.getElementById("product1Number").value = totalNumber;
-
+         //increasing product1 price
          const product1Price = document.getElementById("product1Price").innerText;
          const product1PriceFloat = parseFloat(product1Price);
          const product1PriceTotal = totalNumber * 1199;
          document.getElementById("product1Price").innerText = product1PriceTotal;
+         //adding product1 price in subtotal
+         const subtotalAmount = document.getElementById("subtotalAmount").innerText;
+         const subtotalAmountFloat = parseFloat(subtotalAmount);
+         const subtotalAmountTotal = subtotalAmountFloat + 1199;
+         document.getElementById("subtotalAmount").innerText = subtotalAmountTotal.toFixed(2);
+         //adding tax for product 
+         const taxAmount = document.getElementById("taxAmount").innerText;
+         const taxAmountFloat = parseFloat(taxAmount);
+         const taxAmountTotal = taxAmountFloat + 60.45;
+         document.getElementById("taxAmount").innerText = taxAmountTotal.toFixed(2);
+         //Adding total
+         const totalAmount = document.getElementById("totalAmount").innerText;
+         const totalAmountFloat = parseFloat(totalAmount);
+         const totalAmountTotal = totalAmountFloat + 1199 + 60.45;
+         document.getElementById("totalAmount").innerText = totalAmountTotal.toFixed(2);
+
       })
 
       //2nd product
