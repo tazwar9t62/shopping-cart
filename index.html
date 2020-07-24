@@ -84,17 +84,11 @@
    <!-- JS script  -->
    <script>
       //increasing items number
+
       document.getElementById("product1Plus").addEventListener("click", function () {
-         const product1Number = document.getElementById("product1Number").value;
-         const product1NumberFloat = parseFloat(product1Number);
-         //Increasing the product 1 number
-         const totalNumber = product1NumberFloat + 1;
-         document.getElementById("product1Number").value = totalNumber;
-         //increasing product1 price
-         const product1Price = document.getElementById("product1Price").innerText;
-         const product1PriceFloat = parseFloat(product1Price);
-         const product1PriceTotal = totalNumber * 1199;
-         document.getElementById("product1Price").innerText = product1PriceTotal;
+         quantityHandle("product1Number", "product1Price", 1, 1199);
+
+
          //adding product1 price in subtotal
          updateValue("subtotalAmount", 1199);
          //adding tax for product 
@@ -128,11 +122,28 @@
       })
 
       //Functions
+
+      //Function for updating values
       function updateValue(id, value) {
          const inputValue = document.getElementById(id).innerText;
          const inputValueFloat = parseFloat(inputValue);
          const total = inputValueFloat + value;
          document.getElementById(id).innerText = total.toFixed(2);
+      }
+
+      //Function for quantity management
+      function quantityHandle(id, id2, IncreaseOrDecrease, productPrice) {
+         const product1Number = document.getElementById(id).value;
+         const product1NumberFloat = parseFloat(product1Number);
+         //Increasing the product 1 number
+         const totalNumber = product1NumberFloat + IncreaseOrDecrease;
+         document.getElementById(id).value = totalNumber;
+
+         //increasing product1 price
+         const product1Price = document.getElementById(id2).innerText;
+         const product1PriceFloat = parseFloat(product1Price);
+         const product1PriceTotal = totalNumber * productPrice;
+         document.getElementById(id2).innerText = product1PriceTotal;
       }
    </script>
 </body>
