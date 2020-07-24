@@ -133,17 +133,15 @@
 
       //Function for quantity management
       function quantityHandle(id, id2, IncreaseOrDecrease, productPrice) {
-         const product1Number = document.getElementById(id).value;
-         const product1NumberFloat = parseFloat(product1Number);
+         const number = document.getElementById(id).value;
+         const numberFloat = parseFloat(number);
          //Increasing the product 1 number
-         const totalNumber = product1NumberFloat + IncreaseOrDecrease;
+         const totalNumber = numberFloat + IncreaseOrDecrease;
          document.getElementById(id).value = totalNumber;
 
          //increasing product1 price
-         const product1Price = document.getElementById(id2).innerText;
-         const product1PriceFloat = parseFloat(product1Price);
-         const product1PriceTotal = totalNumber * productPrice;
-         document.getElementById(id2).innerText = product1PriceTotal;
+         const priceTotal = totalNumber * productPrice;
+         document.getElementById(id2).innerText = priceTotal;
       }
    </script>
 </body>
