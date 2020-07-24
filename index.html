@@ -96,21 +96,11 @@
          const product1PriceTotal = totalNumber * 1199;
          document.getElementById("product1Price").innerText = product1PriceTotal;
          //adding product1 price in subtotal
-         const subtotalAmount = document.getElementById("subtotalAmount").innerText;
-         const subtotalAmountFloat = parseFloat(subtotalAmount);
-         const subtotalAmountTotal = subtotalAmountFloat + 1199;
-         document.getElementById("subtotalAmount").innerText = subtotalAmountTotal.toFixed(2);
+         updateValue("subtotalAmount", 1199);
          //adding tax for product 
-         const taxAmount = document.getElementById("taxAmount").innerText;
-         const taxAmountFloat = parseFloat(taxAmount);
-         const taxAmountTotal = taxAmountFloat + 60.45;
-         document.getElementById("taxAmount").innerText = taxAmountTotal.toFixed(2);
-         //Adding total
-         const totalAmount = document.getElementById("totalAmount").innerText;
-         const totalAmountFloat = parseFloat(totalAmount);
-         const totalAmountTotal = totalAmountFloat + 1199 + 60.45;
-         document.getElementById("totalAmount").innerText = totalAmountTotal.toFixed(2);
-
+         updateValue("taxAmount", 60.45);
+         //Adding total 
+         updateValue("totalAmount", 1259.45); //1199 + 60.45
       })
       //decreasing items number (Testing now..will apply later using function)
       document.getElementById("product1Minus").addEventListener("click", function () {
@@ -136,6 +126,14 @@
 
 
       })
+
+      //Functions
+      function updateValue(id, value) {
+         const inputValue = document.getElementById(id).innerText;
+         const inputValueFloat = parseFloat(inputValue);
+         const total = inputValueFloat + value;
+         document.getElementById(id).innerText = total.toFixed(2);
+      }
    </script>
 </body>
 
