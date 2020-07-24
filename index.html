@@ -59,7 +59,7 @@
 
                      <div class="col-md-8 mr-auto ">
                         <h5>Subtotal: </h5>
-                        <h5>Tax:</h5>
+                        <h5>Tax (5%):</h5>
                         <h5>Total:</h5>
                      </div>
 
@@ -83,6 +83,7 @@
 
    <!-- JS script  -->
    <script>
+      //product 1
       //increasing items number
 
       document.getElementById("product1Plus").addEventListener("click", function () {
@@ -91,9 +92,9 @@
          //adding product1 price in subtotal
          updateValue("subtotalAmount", 1199);
          //adding tax for product 
-         updateValue("taxAmount", 60.45);
+         updateValue("taxAmount", 59.95);
          //Adding total 
-         updateValue("totalAmount", 1259.45); //1199 + 60.45
+         updateValue("totalAmount", 1258.95); //1199 + 59.95
       })
       //decreasing items number 
       document.getElementById("product1Minus").addEventListener("click", function () {
@@ -102,23 +103,40 @@
          //adding product1 price in subtotal
          updateValue("subtotalAmount", -1199);
          //adding tax for product 
-         updateValue("taxAmount", -60.45);
+         updateValue("taxAmount", -59.95);
          //Adding total 
-         updateValue("totalAmount", -1259.45);
+         updateValue("totalAmount", -1258.95);
 
 
       })
-      //2nd product
+
+      //Product 2
+      //increasing items number
 
       document.getElementById("product2Plus").addEventListener("click", function () {
-         const product2Number = document.getElementById("product2Number").value;
-         const product2NumberFloat = parseFloat(product2Number);
-         //Increasing the product 1 number
-         const totalNumber2 = product2NumberFloat + 1;
-         document.getElementById("product2Number").value = totalNumber2;
+         quantityHandle("product2Number", "product2Price", 1, 10);
+
+         //adding product1 price in subtotal
+         updateValue("subtotalAmount", 10);
+         //adding tax for product 
+         updateValue("taxAmount", 0.5);
+         //Adding total 
+         updateValue("totalAmount", 10.5); //10 + .5
+      })
+      //decreasing items number 
+      document.getElementById("product2Minus").addEventListener("click", function () {
+         quantityHandle("product2Number", "product2Price", -1, 10);
+
+         //adding product1 price in subtotal
+         updateValue("subtotalAmount", -10);
+         //adding tax for product 
+         updateValue("taxAmount", -0.5);
+         //Adding total 
+         updateValue("totalAmount", -10.5);
 
 
       })
+
 
       //Functions
 
@@ -138,7 +156,7 @@
          const totalNumber = numberFloat + IncreaseOrDecrease;
          document.getElementById(id).value = totalNumber;
 
-         //increasing product1 price
+         //increasing or decreasing product price
          const priceTotal = totalNumber * productPrice;
          document.getElementById(id2).innerText = priceTotal;
       }
