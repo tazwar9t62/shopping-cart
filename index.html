@@ -88,7 +88,6 @@
       document.getElementById("product1Plus").addEventListener("click", function () {
          quantityHandle("product1Number", "product1Price", 1, 1199);
 
-
          //adding product1 price in subtotal
          updateValue("subtotalAmount", 1199);
          //adding tax for product 
@@ -96,18 +95,18 @@
          //Adding total 
          updateValue("totalAmount", 1259.45); //1199 + 60.45
       })
-      //decreasing items number (Testing now..will apply later using function)
+      //decreasing items number 
       document.getElementById("product1Minus").addEventListener("click", function () {
-         const product1Number2 = document.getElementById("product1Number").value;
-         const product1NumberFloat2 = parseFloat(product1Number2);
-         //Increasing the product 1 number
-         const totalNumber2 = product1NumberFloat2 + (-1) * 1;
-         document.getElementById("product1Number").value = totalNumber2;
-         //decreasing product1 price
-         const product1Price2 = document.getElementById("product1Price").innerText;
-         const product1PriceFloat2 = parseFloat(product1Price2);
-         const product1PriceTotal2 = totalNumber2 * 1199;
-         document.getElementById("product1Price").innerText = product1PriceTotal2;
+         quantityHandle("product1Number", "product1Price", -1, 1199);
+
+         //adding product1 price in subtotal
+         updateValue("subtotalAmount", -1199);
+         //adding tax for product 
+         updateValue("taxAmount", -60.45);
+         //Adding total 
+         updateValue("totalAmount", -1259.45);
+
+
       })
       //2nd product
 
