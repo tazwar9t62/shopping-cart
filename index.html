@@ -16,7 +16,7 @@
       <div class="container">
          <div class="cart">
             <div class="col-md-12 col-lg-10 mx-auto">
-               <div class="cart-item">
+               <div class="cart-item" id="product1Cart">
                   <div class="row">
                      <div class="col-md-6 center-item">
                         <img src="images/product-1.png" alt="iPhone 11">
@@ -30,12 +30,12 @@
                            <button id="product1Plus" class="btn btn-default"><i class="fas fa-plus"></i></button>
                         </div>
                         <h5>$ <span id="product1Price">1199</span></h5>
-                        <img src="images/remove.png" alt="" class="remove-item">
+                        <img id="product1remove" src="images/remove.png" alt="" class="remove-item">
                      </div>
                   </div>
                </div>
 
-               <div class="cart-item">
+               <div class="cart-item" id="product2Cart">
                   <div class="row">
                      <div class="col-md-6 center-item mx-auto">
                         <img src="images/product-2.png" alt="Iphone case">
@@ -49,7 +49,7 @@
 
                         </div>
                         <h5>$ <span id="product2Price">10</span></h5>
-                        <img src="images/remove.png" alt="" class="remove-item">
+                        <img id="product2remove" src="images/remove.png" alt="" class="remove-item">
                      </div>
                   </div>
                </div>
@@ -110,6 +110,18 @@
 
       })
 
+      //removing cart 1
+      document.getElementById("product1remove").addEventListener("click", function () {
+         document.getElementById("product1Cart").style.display = "none";
+         //adding product1 price in subtotal
+         updateValue("subtotalAmount", -1199);
+         //adding tax for product 
+         updateValue("taxAmount", -59.95);
+         //Adding total 
+         updateValue("totalAmount", -1258.95);
+
+      })
+
       //Product 2
       //increasing items number
 
@@ -135,6 +147,8 @@
          updateValue("totalAmount", -10.5);
 
 
+
+
       })
 
 
@@ -152,6 +166,7 @@
       function quantityHandle(id, id2, IncreaseOrDecrease, productPrice) {
          const number = document.getElementById(id).value;
          const numberFloat = parseFloat(number);
+
          //Increasing the product 1 number
          const totalNumber = numberFloat + IncreaseOrDecrease;
          document.getElementById(id).value = totalNumber;
